@@ -2,6 +2,7 @@ LOCAL_PATH:= $(call my-dir)
 include $(LOCAL_PATH)/../common.mk
 include $(CLEAR_VARS)
 
+LOCAL_VENDOR_MODULE           := true
 LOCAL_COPY_HEADERS_TO         := $(common_header_export_path)
 LOCAL_COPY_HEADERS            := color_metadata.h
 
@@ -20,6 +21,7 @@ LOCAL_EXPORT_C_INCLUDE_DIRS   := $(LOCAL_PATH) \
 
 ifeq ($(TARGET_USES_GRALLOC1), true)
     LOCAL_EXPORT_C_INCLUDE_DIRS += $(display_top)/libgralloc1
+    LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := libhardware_headers
 else
     LOCAL_EXPORT_C_INCLUDE_DIRS += $(display_top)/libgralloc
 endif
